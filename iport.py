@@ -23,11 +23,11 @@ https://github.com/CyberPh4nToM49/
 ------------------------------------------------------------
     """)
 
-remoteServer    = raw_input("IP à Scan: ")
+remoteServer    = raw_input("Your Host : ")
 remoteServerIP  = socket.gethostbyname(remoteServer)
 banner()
 print "-" * 60
-print "Sois patient negro, ça scan!", remoteServerIP
+print "Be Patient, Scan is Runing !", remoteServerIP
 print "-" * 60
 
 t1 = datetime.now()
@@ -44,19 +44,19 @@ try:
         sock.close()
     
 except KeyboardInterrupt:
-    print "arrêter Ctrl+C"
+    print "stop Ctrl+C"
     sys.exit()
 
 except socket.gaierror:
-    print 'IP non Scannable. quit'
+    print 'IP out. quit'
     sys.exit()
 
 except socket.error:
-    print "Impossible de ce connecter au serveur"
+    print "Impossible to connect to server"
     sys.exit()
 
 t2 = datetime.now()
 
 total =  t2 - t1
 
-print '{}Scan compléter en: '.format(PLUS,), total
+print '{}Scan finish in: '.format(PLUS,), total
