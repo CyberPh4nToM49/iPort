@@ -37,7 +37,7 @@ try:
 
     for port in range(1,65536):  
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(0.100) # Scan très rapide
+        sock.settimeout(2.000) # Scan très rapide
         result = sock.connect_ex((remoteServerIP, port))
         if result == 0:
             print "{}Port {}: 	 Open".format(PLUS,port)
