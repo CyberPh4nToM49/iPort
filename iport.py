@@ -37,20 +37,12 @@ try:
 
     for port in range(1,65536):  
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(2.200) # Scan fast
+        sock.settimeout(0.500) # Scan fast
         result = sock.connect_ex((remoteServerIP, port))
         if result == 0:
-            print "{}Port {}: 	 \033[1;32;40m Open\n".format(PLUS,port)
+            print "{}Port {}: 	 \033[1;32;40m Open".format(PLUS,port)
         sock.close()
     
-except KeyboardInterrupt:
-    print "stop Ctrl+C"
-    sys.exit()
-
-except socket.gaierror:
-    print 'IP out. quit'
-    sys.exit()
-
 except socket.error:
     print "Impossible to connect to server"
     sys.exit()
