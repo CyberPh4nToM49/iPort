@@ -27,7 +27,7 @@ remoteServer    = raw_input("Your Host : ")
 remoteServerIP  = socket.gethostbyname(remoteServer)
 banner()
 print "-" * 60
-print "Be Patient, Scan is Runing !", remoteServerIP
+print "Be Patient, Scan is Runing ! for 65536 Port,", remoteServerIP
 print "-" * 60
 
 t1 = datetime.now()
@@ -37,7 +37,7 @@ try:
 
     for port in range(1,65536):  
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(0.800) # Scan fast
+        sock.settimeout(2.200) # Scan fast
         result = sock.connect_ex((remoteServerIP, port))
         if result == 0:
             print "{}Port {}: 	 \033[1;32;40m Open\n".format(PLUS,port)
