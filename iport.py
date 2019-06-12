@@ -5,6 +5,7 @@ import subprocess
 import sys
 from datetime import datetime
 from config import PLUS
+from config import WARNING
 
 subprocess.call('clear', shell=True)
 
@@ -33,13 +34,15 @@ t1 = datetime.now()
 
 
 try:
-    for port in range(1,1025):  
+
+    for port in range(1,65536):  
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(0.100) # Scan très rapide
         result = sock.connect_ex((remoteServerIP, port))
         if result == 0:
             print "{}Port {}: 	 Open".format(PLUS,port)
         sock.close()
-
+    
 except KeyboardInterrupt:
     print "arrêter Ctrl+C"
     sys.exit()
