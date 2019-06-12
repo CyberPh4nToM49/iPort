@@ -1,7 +1,3 @@
-# iPort
-Scan port (IP, URL)
+USE
 
-
-#USE
-
-$ python iport.py
+python iport.py
